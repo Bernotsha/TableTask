@@ -1,0 +1,90 @@
+
+<div style="display: flex; flex-direction: row;">
+
+  <div style="width: 400px; height: 500px; background-color: white; padding: 30px; border-radius: 10px; margin-top: 20px; margin-left: 120px;">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+          <label for="courseName">Train No</label>
+          <input
+            type="text"
+            class="form-control"
+            name="train_no"
+			[(ngModel)] = 'trainmodel.train_no'
+			required>
+        </div>
+        <div class=" form-group">
+          <label for="courseDesc">Train Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="train_name"
+			[(ngModel)]="trainmodel.train_name">
+        </div>
+		<div class="form-group">
+          <label for="courseAmount">Train Expt. Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="train_exptime"
+			[(ngModel)]="trainmodel.train_exptime">
+        </div>
+        <div class="form-group">
+            <label for="courseAmount">A/D</label>
+            <input
+              type="text"
+              class="form-control"
+              name="train_ad"
+              [(ngModel)] = "trainmodel.train_ad">
+          </div>
+          <div class="form-group">
+            <label for="courseAmount">Platform NO.</label>
+            <input
+              type="text"
+              class="form-control"
+              name="train_pf"
+              [(ngModel)] = "trainmodel.train_pf">
+          </div>
+        <div>
+          <button
+            class="btn btn-success"
+            type="submit">Confirm</button>
+        </div>
+    </form>
+</div>
+
+<div class="example-container mat-elevation-z8" style="width: 880px; margin: 20px;">
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="TrainNO">
+      <mat-header-cell *matHeaderCellDef> Train No </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.train_no}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="TrainName">
+      <mat-header-cell *matHeaderCellDef> Train Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.train_name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Expt.Time">
+      <mat-header-cell *matHeaderCellDef> Expt. Time </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.train_exptime}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="A/D">
+      <mat-header-cell *matHeaderCellDef> A/D </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.train_ad}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Platform">
+      <mat-header-cell *matHeaderCellDef> PF. NO </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.train_pf}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+
+</div>
